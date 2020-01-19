@@ -159,15 +159,15 @@ def determine_best_split(data, potential_splits):
             data_below, data_above = split_data(data, column_index, value)
             current_overall_entropy = calculate_overall_entropy(data_below, data_above)
             
-            if current_overall_entropy < overall_entropy:
+            if current_overall_entropy <= overall_entropy:
                 overall_entropy = current_overall_entropy
                 best_split_column = column_index
                 best_split_value = value
                 
     return best_split_column, best_split_value
 
-
-
+potential_splits = get_potential_splits(data)
+print(determine_best_split(data, potential_splits))
 
 
 
